@@ -2,7 +2,6 @@
 
 A simple HTML/PHP/JS/CSS webapp displaying client internal- and external IP information.
 
-
 <dl>
     <dt>Features:</dt>
     <dd>Copy to Clipboard<br>
@@ -10,6 +9,9 @@ A simple HTML/PHP/JS/CSS webapp displaying client internal- and external IP info
     External IP via PHP<br>
     Language localization</dd>
 </dl>
+
+![preveiw](https://github.com/ThatKalle/http-ip-query/blob/master/demo/screenshot.jpg)
+
 
 ### Prerequisites
 
