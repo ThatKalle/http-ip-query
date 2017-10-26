@@ -9,7 +9,7 @@ Features: Copy to Clipboard<br>
 
 ### Prerequisites
 
-You'll need a web server with PHP enabled. Pretty much any version should work.
+You'll need a web server with PHP enabled. Pretty much any version above 5.4 should work.
 
 ```
 <?= $_SERVER['REMOTE_ADDR']; ?>
