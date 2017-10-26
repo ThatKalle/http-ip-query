@@ -5,12 +5,14 @@ $(function() {
         // Swedish
         $('.local-ipv4-info').html('Din lokala IP address är');
         $('.public-ip-info').html('Din publika IP address är');
+        // Display helpful message if WebRTC won't work
         $('.local-ip').html('Endast tillgängligt i Chrome eller Firefox, sorry!');
         $('.copy-btn-txt').html('Kopiera till urklipp');
     } else {
         // Everything else
         $('.local-ipv4-info').html('Your local IP address is');
         $('.public-ip-info').html('Your public IP address is');
+        // Display helpful message if WebRTC won't work
         $('.local-ip').html("Only available in Chrome or Firefox, sorry!");
         $('.copy-btn-txt').html('Copy to Clipboard');
     }
@@ -23,9 +25,8 @@ $(function() {
     }
 
     if(isIE()) {
-        // Display helpful message if WebRTC won't work, and hide button.
-        $('.local-btn').css('visibility', 'hidden');
-        $('.public-btn').css('visibility', 'hidden');
+        // Hide the Copy to Clipboard buttons as they are not supported in IE.
+        $('.local-btn, .public-btn').css('visibility', 'hidden');
         $('body').addClass('ie');
     }
 
@@ -51,6 +52,7 @@ $(function() {
         document.execCommand('copy');
     });
 
+    // Click events
     $('.public-btn, .public-ip').on('click', function() {
         let val = $('.public-copy').val();
         $('.public-copy').val(val).select();
