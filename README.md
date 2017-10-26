@@ -33,13 +33,13 @@ Localization is supported and tested to Swedish with English as a default fallba
 Adjustemnts are done on line 4-16 in [script.js](script.js).
 ```
     // Localization
-    if(navigator.language == 'sv') {
+    if(navigator.language == 'sv' || navigator.language == 'sv-SE') {
         // Swedish
         $('.local-ipv4-info').html('Din lokala IP address är');
         $('.public-ip-info').html('Din publika IP address är');
         $('.local-ip').html('Endast tillgängligt i Chrome eller Firefox, sorry!');
         $('.copy-btn-txt').html('Kopiera till urklipp');
-    } else { }
+    } else { ...
 ```
 To find the `navigator.language` value for your language is not further away than Chrome console.<br>
 Open up any site, hit **F12**, type `navigator.language` in the console.
