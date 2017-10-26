@@ -2,10 +2,14 @@
 
 A simple HTML/PHP/JS/CSS webapp displaying client internal- and external IP information.
 
-Features: Copy to Clipboard<br>
-          Local IP via WebRTC<br>
-          External IP via PHP<br>
-          Language localization<br>
+
+<dl>
+    <dt>Features:</dt>
+    <dd>Copy to Clipboard<br>
+    Local IP via WebRTC<br>
+    External IP via PHP<br>
+    Language localization</dd>
+</dl>
 
 ### Prerequisites
 
