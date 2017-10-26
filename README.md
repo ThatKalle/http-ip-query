@@ -34,7 +34,7 @@ Make sure you change the `github-corner` address, or remove it entierly, if remo
 ### Localization
 
 Localization is supported and tested to Swedish with English as a default fallback.<br>
-Adjustemnts are done on line 4-16 in [script.js](script.js).
+Adjustemnts are done on line 4-18 in [script.js](script.js).
 ```
     // Localization
     if(navigator.language == 'sv' || navigator.language == 'sv-SE') {
