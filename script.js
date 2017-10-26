@@ -1,7 +1,7 @@
 $(function() {
 
     // Localization
-    if(navigator.language == 'sv') {
+    if(navigator.language == 'sv' || navigator.language == 'sv-SE') {
         // Swedish
         $('.local-ipv4-info').html('Din lokala IP address är');
         $('.public-ip-info').html('Din publika IP address är');
@@ -24,7 +24,6 @@ $(function() {
 
     if(isIE()) {
         // Display helpful message if WebRTC won't work, and hide button.
-        $('.local-ip').html("Only available in Chrome or Firefox, sorry!");
         $('.local-btn').css('visibility', 'hidden');
         $('.public-btn').css('visibility', 'hidden');
         $('body').addClass('ie');
@@ -44,6 +43,7 @@ $(function() {
         $('.local-ip').html(myIP);
     };
 
+    // Click events
     $('.local-btn, .local-ip').on('click', function() {
         let val = $('.local-ip').html();
         $('.local-copy').val(val).select();
