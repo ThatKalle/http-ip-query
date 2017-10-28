@@ -19,6 +19,7 @@ window.onload = function() {
         // Swedish
         localIpv4Info.innerHTML = "Din lokala IP address är";
         publicIpInfo.innerHTML = "Din publika IP address är";
+        // Display helpful message if WebRTC won't work
         localIp.innerHTML = "Endast tillgängligt i Chrome eller Firefox, sorry!";
         Array.prototype.forEach.call(btn, function(el, i){
             el.value = "Kopiera till urklipp";
@@ -27,6 +28,7 @@ window.onload = function() {
         // Everything else
         localIpv4Info.innerHTML = "Your local IP address is";
         publicIpInfo.innerHTML = "Your public IP address is";
+        // Display helpful message if WebRTC won't work
         localIp.innerHTML = "Only available in Chrome or Firefox, sorry!";
         Array.prototype.forEach.call(btn, function(el, i){
             el.value = "Copy to Clipboard";
@@ -40,12 +42,8 @@ window.onload = function() {
     }
 
     if(isIE()) {
-        // Hide the Copy to Clipboard button as they are not supported in IE.
         localBtn.style.visibility = 'hidden';
-        if (body.classList)
-            body.classList.add('ie');
-        else
-            body.ie += ' ' + ie;
+        body.classList ? body.classList.add('ie') : body.ie += ' ' + ie;
     } else {
         // IP Calculation
         window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
@@ -64,10 +62,7 @@ window.onload = function() {
 
         // Loaded event
         setTimeout(function() {
-            if (body.classList)
-                body.classList.add('loaded');
-            else
-                body.loaded += ' ' + loaded;
+            body.classList ? body.classList.add('loaded') : body.loaded += ' ' + loaded;
         }, 250);
     }
 
@@ -100,7 +95,9 @@ window.onload = function() {
             window.getSelection().removeAllRanges();
             window.getSelection().addRange(range);
             localCopy.select();
-        
+            if(typeof window.orientation !== 'undefined') {
+                document.activeElement.blur();
+            }
             document.execCommand('copy');
         }
 
@@ -110,7 +107,9 @@ window.onload = function() {
             window.getSelection().removeAllRanges();
             window.getSelection().addRange(range);
             publicCopy.select();
-        
+            if(typeof window.orientation !== 'undefined') {
+                document.activeElement.blur();
+            }
             document.execCommand('copy');
         }
 
