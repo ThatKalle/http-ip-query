@@ -1,54 +1,59 @@
 # http-ip-query
 
-A simple HTML/PHP/JS/CSS webapp displaying client internal- and external IP information.
+A simple HTML/JS/PHP webapp displaying client internal- and external IP information.
+
+It works with a local PHP api [getIP.php](getIP.php) and WebRTC.
 
 <dl>
     <dt>Features:</dt>
     <dd>Copy to Clipboard<br>
     Local IP via WebRTC<br>
-    External IP via PHP<br>
+    External IP via local PHP api<br>
     Language localization</dd>
 </dl>
 
-![preveiw](https://github.com/ThatKalle/http-ip-query/blob/master/demo/screenshot.jpg)
+![preview](https://github.com/ThatKalle/http-ip-query/blob/master/demo/screenshot.jpg)
 
 
 ### Prerequisites
 
 You'll need a web server with PHP enabled. Pretty much any version above 5.4 should work.
 
-```
+``` php
 <?= $_SERVER['REMOTE_ADDR']; ?>
 ```
 
 ### Installing
 
 Deploy the files to a PHP enabled web server.
-```
+``` shell
 git clone https://github.com/ThatKalle/http-ip-query.git
 cp ./http-ip-query/* /var/www/public_html
 ```
 
-## Deployment
-
-Make sure you change the `github-corner` address, or remove it entierly, if removed, the corresponding CSS defenitions should be removed aswell.
-
-### Localization
+## Localization
 
 Localization is supported and tested to Swedish with English as a default fallback.<br>
-Adjustemnts are done on line 4-18 in [script.js](script.js).
-```
+Adjustemnts are all handeled in [script.js](script.js).
+``` js
     // Localization
     if(navigator.language == 'sv' || navigator.language == 'sv-SE') {
         // Swedish
-        $('.local-ipv4-info').html('Din lokala IP address är');
-        $('.public-ip-info').html('Din publika IP address är');
-        $('.local-ip').html('Endast tillgängligt i Chrome eller Firefox, sorry!');
-        $('.copy-btn-txt').html('Kopiera till urklipp');
+        localIpv4Info.innerHTML = "Din lokala IP address är";
+        publicIpInfo.innerHTML = "Din publika IP address är";
+        // Display helpful message if WebRTC won't work
+        localIp.innerHTML = "Endast tillgängligt i Chrome eller Firefox, sorry!";
+        Array.prototype.forEach.call(btn, function(el, i){
+            el.value = "Kopiera till urklipp";
+        });
     } else { ...
 ```
-To find the `navigator.language` value for your language is not further away than Chrome console.<br>
+To find the `navigator.language` value for your language you'll not need to look further than the browser developer tools console.<br>
 Open up any site, hit **F12**, type `navigator.language` in the console.
+
+## Usage
+
+
 
 ## License
 
@@ -56,5 +61,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-* [ImLinus](https://github.com/imlinus)
+* [imlinus](https://github.com/imlinus)
 * [webrtc-ips](https://github.com/diafygi/webrtc-ips)
+* [You Might Not Need jQuery](http://youmightnotneedjquery.com/)
+* /u/SHIT_PROGRAMMER
