@@ -1,0 +1,9 @@
+#Force HTTPS
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R,L]
+
+#Redirect Error to root
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . / [L,R=301]
