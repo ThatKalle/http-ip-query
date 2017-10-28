@@ -62,6 +62,7 @@ window.onload = function() {
             var myIP = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(ice.candidate.candidate)[1];
             pc.onicecandidate = noop;
             localIp.innerHTML = myIP;
+            localCopy.innerHTML = myIP;
         };
 
         // Loaded event
@@ -96,20 +97,23 @@ window.onload = function() {
 
     // Click events
     document.addEventListener('click', function (event) {
-
         if ( event.target.classList.contains('local-btn') || event.target.classList.contains('local-ip') ) {
-            let val = localIp.innerHTML;
-            localCopy.value = val;
+            var range = document.createRange();
+            range.selectNode(localCopy);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
             localCopy.select();
-            document.activeElement.blur();
+        
             document.execCommand('copy');
         }
 
-        else if ( event.target.classList.contains('public-btn') || event.target.classList.contains('public-ip') ) {
-            let val = publicIp.innerHTML;
-            publicCopy.value = val;
+        else if ( event.target.classList.contains('public-btn') || event.target.classList.contains('public-ip') ) {        
+            var range = document.createRange();
+            range.selectNode(publicCopy);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
             publicCopy.select();
-            document.activeElement.blur();
+        
             document.execCommand('copy');
         }
 
