@@ -20,10 +20,10 @@ It works with a local PHP api [getIP.php](getIP.php) and WebRTC.
 
 ### Prerequisites
 
-You'll need a web server with PHP enabled. Pretty much any version above 5.4 should work.
+You'll need a web server with PHP enabled. Pretty much any version should work.
 
 ``` php
-<?= $_SERVER['REMOTE_ADDR']; ?>
+<? $_SERVER['REMOTE_ADDR']; ?>
 ```
 
 ### Installing
@@ -31,7 +31,7 @@ You'll need a web server with PHP enabled. Pretty much any version above 5.4 sho
 Deploy the files to a PHP enabled web server.
 ``` shell
 ~$ git clone https://github.com/ThatKalle/http-ip-query.git
-~$ cp ./http-ip-query/* /var/www/public_html
+~$ cp -r ./http-ip-query/* /var/www/public_html
 ```
 
 ## Localization
@@ -56,7 +56,8 @@ Open up any site, hit **F12**, type `navigator.language` in the console.
 
 ## Usage
 
-This solution is tested and working on all common browsers in their respective latest versions. *Extended work done to incluse IE and Edge*.
+This solution is tested and working in common browsers at their respective latest versions. *Work done to include IE and Edge*.<br>
+Local IP won't work in IE and Edge as they don't support WebRTC, helpful message displayed.
 
 [ip.php](ip.php) is set up to easily find you're external IP via shell.<br>
 ``` shell
