@@ -56,7 +56,18 @@ p {
     user-select: none;
     border-radius: 3px;
 }
- 
+
+.btn:hover {
+    background-color: #BCBCBC;
+    -webkit-transition: all 0.1s ease-in-out;
+       -moz-transition: all 0.1s ease-in-out;
+         -o-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+}
+.btn:active {
+    background-color: #999999;
+}
+    
 .public-btn, .local-btn {
     left: 50%;
     margin-bottom:20px;
@@ -69,4 +80,29 @@ p {
     padding: 0;
     margin: 0;
     overflow: hidden;
+}
+
+.github-corner {
+    z-index: -1;
+}
+
+.github-corner:hover .octo-arm {
+    animation:octocat-wave 560ms ease-in-out
+} @keyframes octocat-wave {
+    0%,100% {
+        transform:rotate(0)
+    } 20%,60% {
+        transform:rotate(-25deg)
+    } 40%,80% {
+        transform:rotate(10deg)
+    }
+}
+
+@media (max-width:500px) {
+    .github-corner:hover .octo-arm {
+        animation:none
+    }
+    .github-corner .octo-arm {
+        animation:octocat-wave 560ms ease-in-out
+    }
 }
