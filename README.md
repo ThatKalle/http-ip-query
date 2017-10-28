@@ -58,10 +58,14 @@ Open up any site, hit **F12**, type `navigator.language` in the console.
 This solution is tested and working in common browsers at their respective latest versions. *Work done to include IE and Edge*.<br>
 Local IP won't work in IE and Edge as they don't support WebRTC, helpful message displayed.
 
-[ip.php](ip.php) is set up to easily find you're external IP via shell.<br>
+[cli.php](api/cli.php) is set up to easily find you're external IP via CLI.<br>
 ``` shell
 ~$ curl -L http://ip.kallelab.com/api/cli && echo
 198.51.100.132
+```
+``` powershell
+[System.Net.ServicePointManager]::SecurityProtocol = @("Tls12","Tls11","Tls","Ssl3")
+$ip = (New-Object System.Net.WebClient).DownloadString("https://ip.kallelab.com/api/cli")
 ```
 
 ## License
