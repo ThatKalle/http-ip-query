@@ -19,7 +19,6 @@ window.onload = function() {
         // Swedish
         localIpv4Info.innerHTML = "Din lokala IP address är";
         publicIpInfo.innerHTML = "Din publika IP address är";
-        // Display helpful message if WebRTC won't work
         localIp.innerHTML = "Endast tillgängligt i Chrome eller Firefox, sorry!";
         Array.prototype.forEach.call(btn, function(el, i){
             el.value = "Kopiera till urklipp";
@@ -28,7 +27,6 @@ window.onload = function() {
         // Everything else
         localIpv4Info.innerHTML = "Your local IP address is";
         publicIpInfo.innerHTML = "Your public IP address is";
-        // Display helpful message if WebRTC won't work
         localIp.innerHTML = "Only available in Chrome or Firefox, sorry!";
         Array.prototype.forEach.call(btn, function(el, i){
             el.value = "Copy to Clipboard";
@@ -42,9 +40,8 @@ window.onload = function() {
     }
 
     if(isIE()) {
-        // Hide the Copy to Clipboard buttons as they are not supported in IE.
+        // Hide the Copy to Clipboard button as they are not supported in IE.
         localBtn.style.visibility = 'hidden';
-        publicBtn.style.visibility = 'hidden';
         if (body.classList)
             body.classList.add('ie');
         else
