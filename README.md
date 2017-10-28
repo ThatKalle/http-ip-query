@@ -9,8 +9,11 @@ It works with a local PHP api [getIP.php](getIP.php) and WebRTC.
     <dd>Copy to Clipboard<br>
     Local IP via WebRTC<br>
     External IP via local PHP api<br>
-    Language localization</dd>
+    Language localization<br>
+    HTTPS redirect<br>
+    Curl support</dd>
 </dl>
+
 
 ![preview](https://github.com/ThatKalle/http-ip-query/blob/master/demo/screenshot.jpg)
 
@@ -27,8 +30,8 @@ You'll need a web server with PHP enabled. Pretty much any version above 5.4 sho
 
 Deploy the files to a PHP enabled web server.
 ``` shell
-git clone https://github.com/ThatKalle/http-ip-query.git
-cp ./http-ip-query/* /var/www/public_html
+~$ git clone https://github.com/ThatKalle/http-ip-query.git
+~$ cp ./http-ip-query/* /var/www/public_html
 ```
 
 ## Localization
@@ -53,7 +56,13 @@ Open up any site, hit **F12**, type `navigator.language` in the console.
 
 ## Usage
 
+This solution is tested and working on all common browsers in their respective latest versions. *Extended work done to incluse IE and Edge*.
 
+[ip.php](ip.php) is set up to easily find you're external IP via shell.<br>
+``` shell
+~$ curl -L http://ip.kallelab.com/ip
+Public IP: 198.51.100.132
+```
 
 ## License
 
