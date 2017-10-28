@@ -44,7 +44,6 @@ Adjustemnts are all handeled in [script.js](script.js).
         // Swedish
         localIpv4Info.innerHTML = "Din lokala IP address är";
         publicIpInfo.innerHTML = "Din publika IP address är";
-        // Display helpful message if WebRTC won't work
         localIp.innerHTML = "Endast tillgängligt i Chrome eller Firefox, sorry!";
         Array.prototype.forEach.call(btn, function(el, i){
             el.value = "Kopiera till urklipp";
@@ -61,8 +60,8 @@ Local IP won't work in IE and Edge as they don't support WebRTC, helpful message
 
 [ip.php](ip.php) is set up to easily find you're external IP via shell.<br>
 ``` shell
-~$ curl -L http://ip.kallelab.com/ip
-Public IP: 198.51.100.132
+~$ curl -L http://ip.kallelab.com/api/cli && echo
+198.51.100.132
 ```
 
 ## License
