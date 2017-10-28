@@ -64,8 +64,8 @@ Local IP won't work in IE and Edge as they don't support WebRTC, helpful message
 198.51.100.132
 ```
 ``` powershell
-[System.Net.ServicePointManager]::SecurityProtocol = @("Tls12","Tls11","Tls","Ssl3")
-$ip = (New-Object System.Net.WebClient).DownloadString("https://ip.kallelab.com/api/cli")
+# [System.Net.ServicePointManager]::SecurityProtocol = @("Tls12","Tls11","Tls","Ssl3")
+(New-Object System.Net.WebClient).DownloadString("https://ip.kallelab.com/api/cli")
 ```
 
 ## License
